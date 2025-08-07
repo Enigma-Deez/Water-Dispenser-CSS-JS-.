@@ -1,0 +1,65 @@
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: #e0f7fa;
+  font-family: Arial, sans-serif;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dispenser {
+  background: #90caf9;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 40px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nozzle {
+  width: 20px;
+  height: 20px;
+  background: #0d47a1;
+  margin: 10px auto;
+  border-radius: 50%;
+}
+
+.dispenser button {
+  margin: 5px;
+  padding: 10px 20px;
+  background: #0288d1;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.dispenser button:hover {
+  background: #01579b;
+}
+
+.glass {
+  width: 80px;
+  height: 150px;
+  border: 4px solid #37474f;
+  border-radius: 5px;
+  position: relative;
+  overflow: hidden;
+  background: #ffffff;
+}
+
+.water {
+  width: 100%;
+  height: 0%;
+  background: #00b0ff;
+  position: absolute;
+  bottom: 0;
+  transition: height 0.2s ease;
+}
