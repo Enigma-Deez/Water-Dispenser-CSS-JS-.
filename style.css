@@ -1,4 +1,4 @@
-@media (min-width: 768px) and (max-width: 1366px) {
+@media (min-width: 768px) and (max-width: 1024px) {
   .bottle {
     width: 320px !important;
     height: 500px !important;
@@ -9,6 +9,20 @@
     height: 800px !important;
     border-top-left-radius: 20px !important;
     border-top-right-radius: 20px !important;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .bottle {
+    width: 220px !important;
+    height: 350px !important;
+    border-radius: 90px !important;
+  }
+  .stand {
+    width: 260px !important;
+    height: 540px !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
   }
 }
 *, *:before, *:after {
