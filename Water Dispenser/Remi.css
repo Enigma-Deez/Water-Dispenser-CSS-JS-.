@@ -1,23 +1,41 @@
+@media (min-width: 768px) and (max-width: 1366px) {
+  .bottle {
+    width: 320px !important;
+    height: 500px !important;
+    border-radius: 130px !important;
+  }
+  .stand {
+    width: 380px !important;
+    height: 800px !important;
+    border-top-left-radius: 20px !important;
+    border-top-right-radius: 20px !important;
+  }
+}
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-.wrapper {
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-    width: 100%;
+body {
     background: #a8d4d7;
 }
+.wrapper {
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+height: 100vh;
+width: 100%;
+background: #a8d4d7;
+}
 .bottle {
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    height: 160px;
-    width: 100px;
-    background: #64B7FF;
-    border-radius: 40px;
+position: relative;
+display: block;
+margin: 0 auto;
+height: 240px;
+width: 150px;
+background: #64B7FF;
+border-radius: 60px;
 }
 .bottle .reflection {
     position: absolute;
@@ -65,22 +83,22 @@
     left: -5px;
 }
 .stand {
-    height: 250px;
-    width: 120px;
-    background: white;
-    position: relative;
-    display: block;
-    margin: 0 auto;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
+height: 500px;
+width: 200px;
+background: white;
+position: relative;
+display: block;
+margin: 0 auto;
+border-top-left-radius: 7.5px;
+border-top-right-radius: 7.5px;
 }
 .stand:before {
     content:"";
     position: absolute;
     top: -5px;
     left: 10px;
-    width: 100px;
-    height: 8px;
+    width: 150px;
+    height:15px;
     background: #f8f8f8;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -125,15 +143,21 @@
     background: #c5c5c5;
     position: absolute;
     bottom: 0;
-    right: 0;
+    right: 1px;
     border-top-right-radius: 5px;
 }
 .stand .taps div {
     height: 20px;
     width: 32px;
-    background: white;
+    background: rgb(255, 255, 255);
     display: inline-block;
     margin: 15px 4px;
+}
+.stand .taps .hot {
+    margin-left: 44px;
+}
+.stand .taps .cold {
+    margin-left: 15px;
 }
 .stand .taps .cold:before {
     content:"";
@@ -153,24 +177,24 @@
 }
 .stand .taps .cold:after {
     content:"";
-    height: 8px;
+    height: 15px;
     width: 8px;
     border-radius: 8px;
     position: absolute;
     margin: auto;
     top: 30px;
-    left: 16px;
+    left: 26px;
     background: white;
 }
 .stand .taps .hot:after {
     content:"";
-    height: 8px;
+    height: 15px;
     width: 8px;
     border-radius: 8px;
     position: absolute;
     margin: auto;
     top: 30px;
-    right: 16px;
+    right: 21px;
     background: white;
 }
 .bottle .bubbles {
