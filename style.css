@@ -1,3 +1,42 @@
+/* Fridge inside and bottles */
+.fridge-inside {
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    width: calc(100% - 16px);
+    height: calc(100% - 16px);
+    background: #b0b0b0;
+    border-radius: 0 0 10px 10px;
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-around;
+    z-index: 0;
+}
+.fridge-bottle {
+    width: 30px;
+    height: 85px;
+    background: #64B7FF;
+    border-radius: 8px 8px 6px 6px;
+    border: 2px solid #3a7bb7;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+    margin-bottom: 8px;
+    position: relative;
+}
+.fridge-bottle:before {
+    content: "";
+    display: block;
+    width: 18px;
+    height: 7px;
+    background: linear-gradient(to bottom, #e6e6e6 60%, #b0b0b0 100%);
+    border-radius: 9px 9px 6px 6px / 6px 6px 5px 5px;
+    position: absolute;
+    top: -9px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 1.5px solid #b0b0b0;
+    border-bottom: 3px solid #888;
+    box-shadow: 0 2px 4px rgba(80,80,80,0.08);
+}
 /* Fridge styles */
 .fridge {
     width: 150px;
@@ -22,7 +61,7 @@
 }
 .fridge-door.open {
     transform: rotateX(75deg) translateY(20px);
-    box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+    box-shadow: 0 16px 32px rgba(0, 0, 0, 0.18);
 }
 .fridge-handle {
     width: 36px;
@@ -41,32 +80,33 @@
     background: #888;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
-  .bottle {
-    width: 320px !important;
-    height: 500px !important;
-    border-radius: 130px !important;
-  }
-  .stand {
-    width: 380px !important;
-    height: 800px !important;
-    border-top-left-radius: 20px !important;
-    border-top-right-radius: 20px !important;
-  }
+    .bottle {
+        width: 16vw !important;
+        height: 22vh !important;
+        min-width: 180px;
+        min-height: 220px;
+        border-radius: 7vw !important;
+    }
+    .stand {
+        width: 18vw !important;
+        height: 32vh !important;
+        min-width: 200px;
+        min-height: 300px;
+        border-top-left-radius: 2vw !important;
+        border-top-right-radius: 2vw !important;
+    }
+    .stand .taps {
+        top: 12%;
+    }
+    .bottle .line:nth-child(3) {
+        top: 25%;
+    }
+    .bottle .line:nth-child(4) {
+        bottom: 25%;
+    }
 }
 
-@media (min-width: 1025px) and (max-width: 1600px) {
-  .bottle {
-    width: 220px !important;
-    height: 350px !important;
-    border-radius: 90px !important;
-  }
-  .stand {
-    width: 260px !important;
-    height: 540px !important;
-    border-top-left-radius: 12px !important;
-    border-top-right-radius: 12px !important;
-  }
-}
+
 *, *:before, *:after {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
@@ -83,6 +123,7 @@ align-items: center;
 min-height: 100vh;
 width: 100%;
 background: #a8d4d7;
+
 @media (max-width: 600px) {
   .wrapper {
     min-height: 100svh;
@@ -314,4 +355,17 @@ border-top-right-radius: 7.5px;
     background: #d8d8ff;
     bottom: 60px;
     left: 60px;
+}
+@media (min-width: 1025px) and (max-width: 1600px) {
+  .bottle {
+    width: 220px !important;
+    height: 350px !important;
+    border-radius: 90px !important;
+  }
+  .stand {
+    width: 260px !important;
+    height: 540px !important;
+    border-top-left-radius: 12px !important;
+    border-top-right-radius: 12px !important;
+  }
 }
