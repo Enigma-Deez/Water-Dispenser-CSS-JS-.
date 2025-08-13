@@ -1,3 +1,45 @@
+/* Fridge styles */
+.fridge {
+    width: 150px;
+    height: 160px;
+    margin: 300px auto 0 auto;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+.fridge-door {
+    width: 100%;
+    height: 100%;
+    background: #e0e0e0;
+    border: 3px solid #b0b0b0;
+    border-radius: 0 0 12px 12px;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(.4,2,.6,1), box-shadow 0.3s;
+    transform-origin: top center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    z-index: 1;
+}
+.fridge-door.open {
+    transform: rotateX(75deg) translateY(20px);
+    box-shadow: 0 16px 32px rgba(0,0,0,0.18);
+}
+.fridge-handle {
+    width: 36px;
+    height: 14px;
+    background: rgb(88, 86, 86)#ffffff;
+    border-radius: 7px;
+    position: absolute;
+    left: 50%;
+    bottom: 10px;
+    transform: translateX(-50%);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.12);
+    cursor: pointer;
+    border: 2px solid #888;
+}
+.fridge-handle:active {
+    background: #888;
+}
 @media (min-width: 768px) and (max-width: 1024px) {
   .bottle {
     width: 320px !important;
@@ -31,7 +73,7 @@
     box-sizing: border-box;
 }
 body {
-    background: #a8d4d7;
+    background: #7d917c;
 }
 .wrapper {
 display: flex;
@@ -58,12 +100,12 @@ border-radius: 60px;
 }
 .bottle .reflection {
     position: absolute;
-    top: 8px;
-    left: 5px;
-    height: 40px;
+    top: 5px;
+    left: 4px;
+    height: 45px;
     width: 110px;
-    border-top-left-radius: 31px;
-    border-top-right-radius: 31px;
+    border-top-left-radius: 200px;
+    border-top-right-radius: 40px;
     background: -webkit-gradient(linear, left top, right bottom, color-stop(0%, rgba(255, 255, 255, 0.25)), color-stop(1%, rgba(255, 255, 255, 0.20)), color-stop(40%, rgba(255, 255, 255, 0)), color-stop(100%, rgba(255, 255, 255, 0)));
 }
 .bottle .line {
@@ -104,7 +146,7 @@ border-radius: 60px;
 .stand {
 height: 500px;
 width: 200px;
-background: white;
+background: rgb(88, 86, 86);
 position: relative;
 display: block;
 margin: 0 auto;
@@ -118,7 +160,7 @@ border-top-right-radius: 7.5px;
     left: 10px;
     width: 150px;
     height:15px;
-    background: #f8f8f8;
+    background: #b0b0b0;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
@@ -184,7 +226,7 @@ border-top-right-radius: 7.5px;
     width: 32px;
     position: absolute;
     margin: 0 auto;
-    background: #0000FF;
+    background: rgb(0, 4, 255);
 }
 .stand .taps .hot:before {
     content:"";
@@ -192,7 +234,7 @@ border-top-right-radius: 7.5px;
     width: 32px;
     position: absolute;
     margin: 0 auto;
-    background: #FF3300;
+    background: #df3a11c3;
 }
 .stand .taps .cold:after {
     content:"";
@@ -203,7 +245,7 @@ border-top-right-radius: 7.5px;
     margin: auto;
     top: 30px;
     left: 26px;
-    background: white;
+    background: rgb(255, 255, 255);
 }
 .stand .taps .hot:after {
     content:"";
