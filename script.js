@@ -32,16 +32,31 @@ switchBtn.addEventListener('click', () => {
 });
 
 
-    const water = document.getElementById("water");
-        const btn = document.getElementById("toggleBtn");    
-    let isOn;
-    btn.addEventListener("click", () => {
-      isOn = !isOn;
-      if (isOn) {
-        water.classList.add("on");
-        btn.textContent = "";
-      } else {
-        water.classList.remove("on");
-        btn.textContent = "";
-    }
-    });
+const waterCold = document.getElementById("waterCold");
+const waterHot = document.getElementById("waterHot");
+const btn = document.getElementById("toggleBtn");
+const btn2 = document.getElementById("toggleBtn2");
+
+let coldOn = false;
+let hotOn = false;
+
+// Cold tap
+btn.addEventListener("click", () => {
+  coldOn = !coldOn;
+  if (coldOn) {
+    waterCold.classList.add("on");
+  } else {
+    waterCold.classList.remove("on");
+  }
+});
+
+// Hot tap
+btn2.addEventListener("click", () => {
+  hotOn = !hotOn;
+  if (hotOn) {
+    waterHot.classList.add("on");
+  } else {
+    waterHot.classList.remove("on");
+  }
+});
+
