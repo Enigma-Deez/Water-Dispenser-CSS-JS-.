@@ -1,3 +1,61 @@
+/* The socket */
+.socket {
+  position: fixed;
+  bottom: 50px;      /* bottom-right corner */
+  right: 20px;
+  width: 70px;
+  height: 80px;
+  background: #f5f5f5;
+  border: 3px solid #ccc;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  padding: 15px;
+}
+
+.plug-holes {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.hole {
+  width: 20px;
+  height: 20px;
+  background: #000;
+  border-radius: 50%;
+}
+
+.switch {
+  width: 40px;
+  height: 20px;
+  background: #ccc;
+  border-radius: 20px;
+  position: relative;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.switch::before {
+  content: "";
+  width: 18px;
+  height: 18px;
+  background: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 1px;
+  left: 1px;
+  transition: left 0.3s;
+}
+
+/* ON state */
+.switch.on {
+  background: #4caf50;
+}
+
+.switch.on::before {
+  left: 21px;
+}
+
 /* Fridge inside and bottles */
 .fridge-inside {
     position: absolute;
@@ -66,7 +124,7 @@
 .fridge-handle {
     width: 36px;
     height: 14px;
-    background: rgb(88, 86, 86)#ffffff;
+    background: rgb(88, 86, 86);
     border-radius: 7px;
     position: absolute;
     left: 50%;
@@ -78,6 +136,14 @@
 }
 .fridge-handle:active {
     background: #888;
+}
+/* ...existing code... */
+
+@media (max-width: 600px) {
+  .fridge-handle {
+    width: 54px;
+    height: 21px;
+  }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
     .bottle {
@@ -112,9 +178,6 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
-body {
-    background: #7d917c;
-}
 .wrapper {
 display: flex;
 flex-direction: column;
@@ -123,12 +186,6 @@ align-items: center;
 min-height: 100vh;
 width: 100%;
 background: #a8d4d7;
-
-@media (max-width: 600px) {
-  .wrapper {
-    min-height: 100svh;
-  }
-}
 }
 .bottle {
 position: relative;
@@ -138,6 +195,7 @@ height: 240px;
 width: 150px;
 background: #64B7FF;
 border-radius: 60px;
+
 }
 .bottle .reflection {
     position: absolute;
@@ -256,10 +314,11 @@ border-top-right-radius: 7.5px;
     margin: 15px 4px;
 }
 .stand .taps .hot {
-    margin-left: 44px;
+    margin-left: 60px;
 }
 .stand .taps .cold {
-    margin-left: 15px;
+    margin-left: 15px; 
+    /*Rectangle containing blue strip and white enpty space*/
 }
 .stand .taps .cold:before {
     content:"";
@@ -267,15 +326,51 @@ border-top-right-radius: 7.5px;
     width: 32px;
     position: absolute;
     margin: 0 auto;
-    background: rgb(0, 4, 255);
+    background: rgb(1, 5, 255);
 }
+.stand .taps .hot {
+    margin-left: 40px !important; 
+    /*Rectangle containing blue strip and white enpty space*/
+}
+
+.stand {
+  position: relative; /* anchor point */
+}
+
+#toggleBtn,
+#toggleBtn2 {
+  position: absolute; /* free positioning inside .stand */
+  width: 24px;
+  height: 15px;
+  background: #ffffff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Cold tap button */
+#toggleBtn {
+  top: 20px;   /* vertical placement */
+  left: 19px;  /* horizontal placement */
+}
+
+/* Hot tap button */
+#toggleBtn2 {
+  top: 20px;   /* same vertical level */
+  right: 17px; /* horizontal placement */
+}
+
+
+
 .stand .taps .hot:before {
     content:"";
     height: 6px;
     width: 32px;
+    right: 13px;
     position: absolute;
     margin: 0 auto;
     background: #df3a11c3;
+    /*red strip*/
 }
 .stand .taps .cold:after {
     content:"";
@@ -287,6 +382,7 @@ border-top-right-radius: 7.5px;
     top: 30px;
     left: 26px;
     background: rgb(255, 255, 255);
+    /*white vertical part of cold tap*/
 }
 .stand .taps .hot:after {
     content:"";
@@ -296,8 +392,41 @@ border-top-right-radius: 7.5px;
     position: absolute;
     margin: auto;
     top: 30px;
-    right: 21px;
+    right: 24px;
     background: white;
+    /*white vertical part of hot tap*/
+    /*Blue strip on cold tap*/
+        .watercold {
+      width: 10px;
+      height: 0;
+      background: blue;
+      position: absolute;  
+      left: 55%;
+      top: 100%;           
+      transform: translateX(-50%);
+      transition: height 0.5s;
+    }
+            .waterhot {
+      width: 10px;
+      height: 0;
+      background: red;
+      position: absolute;  
+      left: 50%;
+      top: 100%;           
+      transform: translateX(-50%);
+      transition: height 0.5s;
+    }
+
+    .waterhot.on {
+      height: 150px;
+    }
+        .watercold.on {
+      height: 150px;
+    }
+
+
+
+
 }
 .bottle .bubbles {
     height: 100%;
@@ -356,16 +485,42 @@ border-top-right-radius: 7.5px;
     bottom: 60px;
     left: 60px;
 }
-@media (min-width: 1025px) and (max-width: 1600px) {
-  .bottle {
-    width: 220px !important;
-    height: 350px !important;
-    border-radius: 90px !important;
-  }
-  .stand {
-    width: 260px !important;
-    height: 540px !important;
-    border-top-left-radius: 12px !important;
-    border-top-right-radius: 12px !important;
-  }
+/* ...existing code... */
+
+.fridge-door.open .fridge-handle {
+    position: relative;
+}
+.fridge-door.open .fridge-handle::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;   /* Expanded clickable width */
+    height: 40px;  /* Expanded clickable height */
+    background: transparent;
+    pointer-events: auto;
+    z-index: 2;
+}
+.cup {
+    position: absolute;
+    bottom: -15px !important; /* adjust this to raise it higher */
+    left:3px;   /* move horizontally under tap */
+    width: 47px !important;
+    height: 80px !important;
+    background: transparent;
+    border: 2px solid #a09b9b;
+    border-radius: 0 0 14px 14px / 0 0 28px 28px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+    z-index: 3;
+    cursor: pointer;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    overflow: hidden;
+    transition: left 0.7s cubic-bezier(.4,2,.6,1);
+}
+
+.cup.cold {
+    left: 70px; /* Move further under cold tap if needed */
 }
